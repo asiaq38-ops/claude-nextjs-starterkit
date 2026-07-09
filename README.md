@@ -245,6 +245,95 @@ For detailed hook information, see [`.claude/HOOKS.md`](./.claude/HOOKS.md).
 }
 ```
 
+---
+
+## 🌐 MCP Servers (External Tools Integration)
+
+MCP (Model Context Protocol) servers extend Claude's capabilities by connecting to external tools, services, and APIs.
+
+### Enabled MCP Servers
+
+#### 📚 Context7
+**Latest documentation and information search**
+
+Search for up-to-date documentation across frameworks and libraries:
+- Next.js 15 documentation
+- Tailwind CSS properties and patterns
+- shadcn/ui component documentation
+- React and TypeScript best practices
+
+**Example:**
+```
+Search Context7 for: Next.js 15 App Router best practices
+
+Search Context7 for: Tailwind CSS responsive design
+```
+
+#### 🎭 Playwright
+**Browser automation and testing**
+
+Automate browser interactions for testing and web automation:
+- Take screenshots and visual testing
+- E2E testing for your Next.js app
+- Fill forms and interact with web pages
+- Test responsive design
+
+**Example:**
+```
+Use Playwright to: Take a screenshot of the home page
+
+Use Playwright to: Test if all navigation links work
+```
+
+#### 🧠 Sequential Thinking
+**Complex problem solving with step-by-step reasoning**
+
+Break down complex problems with detailed analysis:
+- Architecture design and planning
+- Algorithm analysis
+- Component optimization
+- Debugging strategies
+
+**Example:**
+```
+Use Sequential Thinking to: Design the best folder structure for API routes
+
+Use Sequential Thinking to: Analyze this complex state management issue
+```
+
+### Configuration
+
+MCP servers are configured in `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "context7": { "type": "http", "url": "https://mcp.context7.com/mcp" },
+    "playwright": { "type": "stdio", "command": "npx", "args": ["@playwright/mcp@latest"] },
+    "sequential-thinking": { "type": "stdio", "command": "npx", "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"] }
+  }
+}
+```
+
+### Checking MCP Status
+
+In Claude Code:
+```
+/mcp
+```
+
+Shows connected servers and their status.
+
+### Adding New MCP Servers
+
+1. Edit `.mcp.json` and add server configuration
+2. For HTTP servers, add URL
+3. For Stdio servers, add command and args
+4. Restart Claude Code
+5. Test with `/mcp`
+
+For detailed information, see [`.claude/MCP_SERVERS.md`](./.claude/MCP_SERVERS.md).
+
 ## 📝 Customization
 
 ### Add New shadcn/ui Components
