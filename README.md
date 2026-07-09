@@ -124,6 +124,59 @@ Creates a new React component with TypeScript and Tailwind CSS.
 - Sets up Props type with React.HTMLAttributes
 - Uses `cn()` utility for class merging
 
+---
+
+## 🤖 Claude Subagents
+
+This starter kit includes specialized subagents for different development tasks.
+
+### `component-generator`
+**Expert React component creator and optimizer**
+
+- **Role**: Automatically generates React components with TypeScript and Tailwind CSS
+- **Features**:
+  - TypeScript Props interfaces
+  - JSDoc documentation
+  - Accessibility (a11y) checking
+  - shadcn/ui component suggestions
+  - Code quality optimization
+
+- **Usage**: 
+```
+@component-generator: Create a UserProfile component that shows user name, email, and avatar
+```
+
+### `page-builder`
+**Next.js page creation and routing specialist**
+
+- **Role**: Creates Next.js pages with proper structure, layouts, and SEO metadata
+- **Features**:
+  - Automatic page.tsx generation
+  - Layout management
+  - Metadata/SEO setup
+  - Dynamic routing support
+  - Responsive design
+
+- **Usage**:
+```
+@page-builder: Create a blog/featured-posts page with post list, filtering, and pagination
+```
+
+### How to Use Subagents
+
+In Claude Code, you can invoke subagents using the `@agent-name` syntax:
+
+```
+@component-generator: Make a ProductCard component with image, price, and add-to-cart button
+
+@page-builder: Create a pricing page with pricing tiers and features comparison
+```
+
+Subagents work independently with specialized knowledge and tools, making them perfect for:
+- **component-generator**: UI component creation and optimization
+- **page-builder**: Page structure and routing setup
+- Future additions: test-runner, security-checker, performance-analyzer, etc.
+
 ## 📝 Customization
 
 ### Add New shadcn/ui Components
