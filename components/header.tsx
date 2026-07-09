@@ -30,15 +30,13 @@ export function Header() {
           </nav>
         </div>
         <div className="ml-auto flex items-center space-x-4">
-          <Button variant="outline" size="sm" asChild>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-          </Button>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Button variant="outline" size="sm">GitHub</Button>
+          </a>
         </div>
       </div>
     </header>

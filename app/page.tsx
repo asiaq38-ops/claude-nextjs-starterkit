@@ -21,14 +21,12 @@ export default function Home() {
                 and TypeScript. Perfect for building your next web application.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" asChild>
-                  <Link href="/examples">Explore Examples</Link>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <a href="https://github.com" target="_blank" rel="noreferrer">
-                    View on GitHub
-                  </a>
-                </Button>
+                <Link href="/examples">
+                  <Button size="lg">Explore Examples</Button>
+                </Link>
+                <a href="https://github.com" target="_blank" rel="noreferrer">
+                  <Button variant="outline" size="lg">View on GitHub</Button>
+                </a>
               </div>
             </div>
           </div>
