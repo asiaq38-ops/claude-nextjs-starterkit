@@ -177,6 +177,74 @@ Subagents work independently with specialized knowledge and tools, making them p
 - **page-builder**: Page structure and routing setup
 - Future additions: test-runner, security-checker, performance-analyzer, etc.
 
+---
+
+## 🪝 Claude Hooks (Automation)
+
+Hooks automatically execute shell commands in response to specific events. They're configured in `.claude/settings.json`.
+
+### Enabled Hooks
+
+#### ✨ Auto-formatting (PostToolUse)
+Automatically formats `.ts`, `.tsx`, `.js`, `.jsx`, and `.json` files with Prettier after they're created or modified.
+
+**Example:**
+```
+1. You create a new component with /add-component
+2. ✅ File is automatically formatted by prettier
+3. Code style is consistent automatically
+```
+
+#### 🔒 File Protection (PreToolUse)
+Prevents accidental modification of sensitive files:
+- `.env` / `.env.local` - Environment variables
+- `package-lock.json` / `yarn.lock` - Dependency locks
+
+**Example:**
+```
+1. You attempt to edit .env
+2. ❌ Hook blocks the edit
+3. "Cannot modify protected file" warning is shown
+```
+
+#### 📝 Command Logging (PostToolUse)
+Logs all bash commands executed by Claude to `.claude/bash-log.txt`.
+
+**Example Log:**
+```
+npm run build - Production build
+git push origin main - GitHub에 저장소 푸시
+npm run dev - Development server
+```
+
+### Configuration
+
+Hooks are defined in `.claude/settings.json`:
+- `PostToolUse`: Runs after a tool executes
+- `PreToolUse`: Runs before a tool executes (can block execution)
+
+For detailed hook information, see [`.claude/HOOKS.md`](./.claude/HOOKS.md).
+
+### Adding New Hooks
+
+1. Edit `.claude/settings.json`
+2. Add hook to appropriate event with:
+   - `matcher`: Tool to trigger on (e.g., "Edit|Write", "Bash")
+   - `command`: Shell command to execute
+3. Restart Claude Code
+
+**Example - Add notification on success:**
+```json
+{
+  "PostToolUse": [
+    {
+      "matcher": "Bash",
+      "command": "[ $? -eq 0 ] && echo '✅ Done!' || echo '❌ Failed!'"
+    }
+  ]
+}
+```
+
 ## 📝 Customization
 
 ### Add New shadcn/ui Components
