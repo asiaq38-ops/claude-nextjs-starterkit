@@ -74,6 +74,8 @@ npm run dev
 
 ## 🛠️ Available Commands
 
+### npm Scripts
+
 ```bash
 # Development server
 npm run dev
@@ -87,6 +89,40 @@ npm start
 # Run ESLint
 npm run lint
 ```
+
+### 🤖 Claude Custom Commands
+
+This starter kit includes custom commands to speed up development:
+
+#### `/add-page <page-name>`
+Creates a new Next.js page with Header, default layout, and Card components.
+
+```bash
+/add-page about
+/add-page blog/featured-posts
+/add-page docs/getting-started
+```
+
+**What it does:**
+- Creates `app/<page-name>/page.tsx` with full page template
+- Includes Header component and responsive layout
+- Uses Tailwind CSS and Card components for styling
+- Auto-generates TypeScript with proper typing
+
+#### `/add-component <component-name> [--ui]`
+Creates a new React component with TypeScript and Tailwind CSS.
+
+```bash
+/add-component Hero
+/add-component UserCard --ui
+/add-component BlogHeader
+```
+
+**What it does:**
+- Creates `components/<component-name>.tsx` (or `components/ui/` with `--ui` flag)
+- Includes JSDoc comments and TypeScript interfaces
+- Sets up Props type with React.HTMLAttributes
+- Uses `cn()` utility for class merging
 
 ## 📝 Customization
 
